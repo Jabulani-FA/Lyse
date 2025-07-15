@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import InputBox from "../reusable/InputBox";
 import Login from "./Login";
 import Signup from "./Signup";
