@@ -1,17 +1,17 @@
-import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../../functions/firebase/auth";
-const provider = new GithubAuthProvider();
+const provider = new GoogleAuthProvider();
 import store from "../../reducers/index";
 import { createUser } from "../../functions/user";
 
-export const handleSignUpWithGithub = () => {
+export const handleSignUpWithGoogle = () => {
   const auth = getAuth(app);
   const setUser = store((state) => state.setUser);
   const User = store((state) => state.user!);
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
-      const credential = GithubAuthProvider.credentialFromResult(result);
+      const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential?.accessToken;
 
       // The signed-in user info.
@@ -37,10 +37,10 @@ export const handleSignUpWithGithub = () => {
       // The email of the user's account used.
       const email = error.customData.email;
       // The AuthCredential type that was used.
-      const credential = GithubAuthProvider.credentialFromError(error);
+      const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
       console.error(
-        "Error during GitHub login:",
+        "Error during Google Login",
         errorCode,
         errorMessage,
         email,
