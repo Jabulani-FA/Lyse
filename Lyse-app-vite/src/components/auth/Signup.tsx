@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { handleSignUpWithGithub } from "./SignUpHandlers/SignUpWithGithub";
 
 const Signup = () => {
   return (
@@ -12,7 +13,7 @@ const Signup = () => {
       <div className="self-center md:w-1/3 w-1/2">
         <h1 className="mb-5">Signup</h1>
         <div className="btn-gradient-inner rounded-lg">
-          <button className="btn-gradient w-full flex justify-center align-center gap-4"><img src="/github-icon2.svg" width={20}/> Sign up with GitHub</button>
+          <button className="btn-gradient w-full flex justify-center align-center gap-4" onClick={() => handleSignUpWithGithub()}><img src="/github-icon2.svg" width={20}/> Sign up with GitHub</button>
         </div>
         <div className="btn-gradient-inner rounded-lg">
           <button className="btn-gradient w-full flex justify-center align-center gap-4"> <img src="/gmail-icon.svg" width={20}/> Sign up with Email</button>
